@@ -12,6 +12,7 @@ public class DiskSpawner : MonoBehaviour
     [SerializeField] private float scaleInterval = 0.05f;
     [SerializeField] private float diskHeight = 0.02f;
     [SerializeField] private Gradient gradient;
+    [SerializeField] private Peg pegA;
 
     private List<GameObject> spawnedDisks;
 
@@ -20,5 +21,6 @@ public class DiskSpawner : MonoBehaviour
         spawnedDisks = diskSpawnerService.Spawn(spawnCount, diskPrefab, spawnPos.position, diskHeight);
         diskSpawnerService.SetInitialScale(spawnedDisks, scaleInterval);
         diskSpawnerService.SetInitialColor(spawnedDisks, gradient);
+        pegA.Initialize(spawnedDisks);
     }
 }

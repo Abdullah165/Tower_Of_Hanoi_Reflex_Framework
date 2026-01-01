@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 266615498}
   - component: {fileID: 266615497}
   - component: {fileID: 266615496}
+  - component: {fileID: 266615500}
   m_Layer: 0
   m_Name: Peg B
   m_TagString: Untagged
@@ -229,6 +230,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &266615500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266615495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f385d5c8cddf30c438f8c6c3619c4a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pegType: 2
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +662,7 @@ GameObject:
   - component: {fileID: 1628745878}
   - component: {fileID: 1628745877}
   - component: {fileID: 1628745876}
+  - component: {fileID: 1628745880}
   m_Layer: 0
   m_Name: Peg C
   m_TagString: Untagged
@@ -746,6 +761,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1628745880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628745875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f385d5c8cddf30c438f8c6c3619c4a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pegType: 3
 --- !u!1 &1731765877
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +786,7 @@ GameObject:
   - component: {fileID: 1731765880}
   - component: {fileID: 1731765879}
   - component: {fileID: 1731765878}
+  - component: {fileID: 1731765882}
   m_Layer: 0
   m_Name: Peg A
   m_TagString: Untagged
@@ -856,6 +885,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1731765882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731765877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f385d5c8cddf30c438f8c6c3619c4a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pegType: 1
 --- !u!1 &1734316522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1114,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
+  pegA: {fileID: 1731765882}
 --- !u!4 &2081972378
 Transform:
   m_ObjectHideFlags: 0
