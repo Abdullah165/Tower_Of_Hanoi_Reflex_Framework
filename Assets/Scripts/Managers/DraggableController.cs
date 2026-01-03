@@ -23,6 +23,8 @@ public class DraggableController : MonoBehaviour, IBeginDragHandler, IDragHandle
     {
         Vector3 currentPos = GetMouseWorldPos();
 
+        currentPos.z = transform.position.z;
+
         transform.position = currentPos;
     }
     public void OnEndDrag(PointerEventData eventData)
