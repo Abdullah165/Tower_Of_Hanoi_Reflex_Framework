@@ -12,6 +12,11 @@ public class DiskSpawnerService : IDiskSpawnerService
             Vector3 spawnPos = position + new Vector3(0, i * diskHeight, 0);
             var disk = Object.Instantiate(prefab, spawnPos, Quaternion.identity);
             disks.Add(disk);
+
+            if(disk.TryGetComponent<Disk>(out var currentDisk))
+            {
+                currentDisk.Size = count - i;
+            }
         }
 
         return disks;
