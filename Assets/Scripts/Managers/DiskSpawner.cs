@@ -1,10 +1,13 @@
 using Reflex.Attributes;
-using UnityEngine;
+using Reflex.Core;
+using Reflex.Injectors;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class DiskSpawner : MonoBehaviour
 {
     [Inject] private IDiskSpawnerService diskSpawnerService;
+    [Inject] private IValidationMovementUIService validationService;
 
     [SerializeField] private int spawnCount = 5;
     [SerializeField] private GameObject diskPrefab;
@@ -21,6 +24,16 @@ public class DiskSpawner : MonoBehaviour
         spawnedDisks = diskSpawnerService.Spawn(spawnCount, diskPrefab, spawnPos.position, diskHeight);
         diskSpawnerService.SetInitialScale(spawnedDisks, scaleInterval);
         diskSpawnerService.SetInitialColor(spawnedDisks, gradient);
+
+        foreach (var disk in spawnedDisks)
+        {
+            var diskComponent = disk.GetComponent<Disk>();
+            if (diskComponent != null)
+            {
+                diskComponent.Initialize(validationService);
+            }
+        }
+
         pegA.Initialize(spawnedDisks);
     }
 }

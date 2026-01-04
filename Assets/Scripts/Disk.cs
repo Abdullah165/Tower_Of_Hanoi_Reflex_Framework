@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,6 +9,13 @@ public class Disk : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     private Vector3 previousePos;
 
     private Peg currentPeg;
+
+    private IValidationMovementUIService validationService;
+
+    public void Initialize(IValidationMovementUIService service)
+    {
+        validationService = service;
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -33,6 +41,8 @@ public class Disk : MonoBehaviour, IBeginDragHandler, IEndDragHandler
             {
                 Debug.Log("Name" + hitInfo.transform.name);
                 bool isValidMove = newPeg.DiskSizes.Count == 0 || Size < newPeg.DiskSizes.Peek();
+
+                validationService.OnDiskMove(isValidMove);
 
                 if (isValidMove)
                 {
