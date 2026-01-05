@@ -8,6 +8,7 @@ public class DiskSpawner : MonoBehaviour
 {
     [Inject] private IDiskSpawnerService diskSpawnerService;
     [Inject] private IValidationMovementUIService validationService;
+    [Inject] private ISettingsService settingsService;
 
     [SerializeField] private int spawnCount = 5;
     [SerializeField] private GameObject diskPrefab;
@@ -30,7 +31,7 @@ public class DiskSpawner : MonoBehaviour
             var diskComponent = disk.GetComponent<Disk>();
             if (diskComponent != null)
             {
-                diskComponent.Initialize(validationService);
+                diskComponent.Initialize(validationService, settingsService);
             }
         }
 

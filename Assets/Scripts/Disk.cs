@@ -11,10 +11,12 @@ public class Disk : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     private Peg currentPeg;
 
     private IValidationMovementUIService validationService;
+    private ISettingsService settingsService;
 
-    public void Initialize(IValidationMovementUIService service)
+    public void Initialize(IValidationMovementUIService validationMovementService, ISettingsService settingsService)
     {
-        validationService = service;
+        this.validationService = validationMovementService;
+        this.settingsService = settingsService;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -44,12 +46,15 @@ public class Disk : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 
                 validationService.OnDiskMove(isValidMove);
 
+
                 if (isValidMove)
                 {
                     currentPeg.DiskSizes.Pop();
                     newPeg.DiskSizes.Push(Size);
 
                     transform.position = newPeg.transform.position; // snap the disk to correct Peg pos
+
+                    settingsService.RecordMove(this, currentPeg, newPeg, previousePos);
                 }
                 else
                 {

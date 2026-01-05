@@ -8,5 +8,7 @@ public class GameInstaller : MonoBehaviour, IInstaller
         containerBuilder.AddSingleton(typeof(DiskSpawnerService), typeof(IDiskSpawnerService));
 
         containerBuilder.AddSingleton(typeof(ValidationMovementUIService), typeof(IValidationMovementUIService));
+
+        containerBuilder.AddSingleton(typeof(SettingsService), typeof(ISettingsService));
     }
 }
