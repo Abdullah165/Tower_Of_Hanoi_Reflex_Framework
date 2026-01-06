@@ -3,20 +3,22 @@ using UnityEngine;
 
 public class Peg : MonoBehaviour
 {
-    private Stack<int> diskSizes = new Stack<int>();
+    private Stack<Disk> disks = new();
+    public Stack<Disk> Disks { get { return disks; } }
 
-    public Stack<int> DiskSizes {  get { return diskSizes; } }
-
-    public void Initialize(List<GameObject> initialDisksSize)
+    public void Initialize(List<GameObject> initialDisks)
     {
-        for (int i = initialDisksSize.Count; i > 0; i--)
+        for (int i = 0; i < initialDisks.Count; i++)
         {
-            AddDisk(i);
+            if (initialDisks[i].TryGetComponent<Disk>(out var disk))
+            {
+                AddDisk(disk);
+            }
         }
     }
 
-    private void AddDisk(int diskSize)
+    private void AddDisk(Disk disk)
     {
-        diskSizes.Push(diskSize);
+        disks.Push(disk);
     }
 }

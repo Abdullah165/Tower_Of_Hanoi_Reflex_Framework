@@ -26,6 +26,7 @@ public class DiskSpawner : MonoBehaviour
         diskSpawnerService.SetInitialScale(spawnedDisks, scaleInterval);
         diskSpawnerService.SetInitialColor(spawnedDisks, gradient);
 
+
         foreach (var disk in spawnedDisks)
         {
             var diskComponent = disk.GetComponent<Disk>();

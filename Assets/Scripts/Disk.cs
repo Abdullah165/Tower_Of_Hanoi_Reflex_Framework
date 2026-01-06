@@ -42,15 +42,15 @@ public class Disk : MonoBehaviour, IBeginDragHandler, IEndDragHandler
             if (hitInfo.transform.TryGetComponent<Peg>(out var newPeg))
             {
                 Debug.Log("Name" + hitInfo.transform.name);
-                bool isValidMove = newPeg.DiskSizes.Count == 0 || Size < newPeg.DiskSizes.Peek();
+                bool isValidMove = newPeg.Disks.Count == 0 || Size < newPeg.Disks.Peek().Size;
 
                 validationService.OnDiskMove(isValidMove);
 
 
                 if (isValidMove)
                 {
-                    currentPeg.DiskSizes.Pop();
-                    newPeg.DiskSizes.Push(Size);
+                    currentPeg.Disks.Pop();
+                    newPeg.Disks.Push(this);
 
                     transform.position = newPeg.transform.position; // snap the disk to correct Peg pos
 

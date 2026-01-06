@@ -35,6 +35,7 @@ public class SettingsUI : MonoBehaviour
 
         autoSolver.onClick.AddListener(() =>
         {
+            settingsService.StartAutoSolve(3, pegA, pegB, pegC);
         });
     }
 }
