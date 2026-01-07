@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class DiskSpawner : MonoBehaviour
 {
-    [Inject] private IDiskSpawnerService diskSpawnerService;
-    [Inject] private IValidationMovementUIService validationService;
-    [Inject] private ISettingsService settingsService;
+    [Inject] private readonly IDiskSpawnerService diskSpawnerService;
+    [Inject] private readonly IValidationMovementUIService validationService;
+    [Inject] private readonly ISettingsService settingsService;
 
     [SerializeField] private int spawnCount = 5;
     [SerializeField] private GameObject diskPrefab;
@@ -25,12 +25,12 @@ public class DiskSpawner : MonoBehaviour
         spawnedDisks = diskSpawnerService.Spawn(spawnCount, diskPrefab, spawnPos.position, diskHeight);
         diskSpawnerService.SetInitialScale(spawnedDisks, scaleInterval);
         diskSpawnerService.SetInitialColor(spawnedDisks, gradient);
+        diskSpawnerService.DiskCount = spawnedDisks.Count;
 
 
         foreach (var disk in spawnedDisks)
         {
-            var diskComponent = disk.GetComponent<Disk>();
-            if (diskComponent != null)
+            if (disk.TryGetComponent<Disk>(out var diskComponent))
             {
                 diskComponent.Initialize(validationService, settingsService);
             }

@@ -14,7 +14,8 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private Peg pegB;
     [SerializeField] private Peg pegC;
 
-    [Inject] private ISettingsService settingsService;
+    [Inject] private readonly ISettingsService settingsService;
+    [Inject] private readonly IDiskSpawnerService diskSpawnerService;
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class SettingsUI : MonoBehaviour
 
         autoSolver.onClick.AddListener(() =>
         {
-            settingsService.StartAutoSolve(3, pegA, pegB, pegC);
+            settingsService.StartAutoSolve(diskSpawnerService.DiskCount, pegA, pegB, pegC);
         });
     }
 }

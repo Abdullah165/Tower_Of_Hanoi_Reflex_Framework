@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Peg : MonoBehaviour
 {
-    private Stack<Disk> disks = new();
+    private readonly Stack<Disk> disks = new();
     public Stack<Disk> Disks { get { return disks; } }
 
     public void Initialize(List<GameObject> initialDisks)

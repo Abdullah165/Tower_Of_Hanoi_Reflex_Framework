@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DiskSpawnerService : IDiskSpawnerService
 {
+    public int DiskCount { get; set; }
+
     public List<GameObject> Spawn(int count, GameObject prefab, Vector3 position, float diskHeight)
     {
         List<GameObject> disks = new List<GameObject>();
