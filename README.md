@@ -2,11 +2,11 @@
 A Tower of Hanoi puzzle game built in Unity using the Reflex Dependency Injection framework.
 
 # What I Built:
--Drag and drop disk movement
--Move validation (can't place big disk on small disk)
--Undo/Redo system (go back and forward through moves)
--Auto-solver (watch it solve recursively)
--UI feedback (shows valid/invalid moves)
+- Drag and drop disk movement
+- Move validation (can't place big disk on small disk)
+- Undo/Redo system (go back and forward through moves)
+- Auto-solver (watch it solve recursively)
+- UI feedback (shows valid/invalid moves)
 
 # What I Learned:
 - Dependency Injection with Reflex
@@ -18,9 +18,9 @@ A Tower of Hanoi puzzle game built in Unity using the Reflex Dependency Injectio
 
 # Architecture
 The game uses 3 main services:
--DiskSpawnerService - Spawns and configures disks
--SettingsService - Handles undo/redo and auto-solve
--ValidationMovementUIService - Validates moves and triggers UI
+- DiskSpawnerService - Spawns and configures disks
+- SettingsService - Handles undo/redo and auto-solve
+- ValidationMovementUIService - Validates moves and triggers UI
 
 All services are injected through Reflex, making the code:
 -Easy to test
